@@ -1,0 +1,15 @@
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\obj\Debug\net6.0\ProjectWithClasses.csproj.AssemblyReference.cache
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\obj\Debug\net6.0\ProjectWithClasses.GeneratedMSBuildEditorConfig.editorconfig
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\obj\Debug\net6.0\ProjectWithClasses.AssemblyInfoInputs.cache
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\obj\Debug\net6.0\ProjectWithClasses.AssemblyInfo.cs
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\obj\Debug\net6.0\ProjectWithClasses.csproj.CoreCompileInputs.cache
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\bin\Debug\net6.0\ProjectWithClasses.exe
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\bin\Debug\net6.0\ProjectWithClasses.deps.json
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\bin\Debug\net6.0\ProjectWithClasses.runtimeconfig.json
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\bin\Debug\net6.0\ProjectWithClasses.dll
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\bin\Debug\net6.0\ProjectWithClasses.pdb
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\obj\Debug\net6.0\ProjectWithClasses.dll
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\obj\Debug\net6.0\refint\ProjectWithClasses.dll
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\obj\Debug\net6.0\ProjectWithClasses.pdb
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\obj\Debug\net6.0\ProjectWithClasses.genruntimeconfig.cache
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_1_Kasianenko_Viacheslav\ProjectWithClasses\ProjectWithClasses\obj\Debug\net6.0\ref\ProjectWithClasses.dll
