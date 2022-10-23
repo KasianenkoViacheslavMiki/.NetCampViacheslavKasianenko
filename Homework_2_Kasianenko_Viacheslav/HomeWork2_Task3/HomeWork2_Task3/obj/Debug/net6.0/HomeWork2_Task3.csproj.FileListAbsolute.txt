@@ -1,0 +1,15 @@
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\bin\Debug\net6.0\HomeWork2_Task3.exe
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\bin\Debug\net6.0\HomeWork2_Task3.deps.json
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\bin\Debug\net6.0\HomeWork2_Task3.runtimeconfig.json
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\bin\Debug\net6.0\HomeWork2_Task3.dll
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\bin\Debug\net6.0\HomeWork2_Task3.pdb
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\obj\Debug\net6.0\HomeWork2_Task3.csproj.AssemblyReference.cache
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\obj\Debug\net6.0\HomeWork2_Task3.GeneratedMSBuildEditorConfig.editorconfig
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\obj\Debug\net6.0\HomeWork2_Task3.AssemblyInfoInputs.cache
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\obj\Debug\net6.0\HomeWork2_Task3.AssemblyInfo.cs
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\obj\Debug\net6.0\HomeWork2_Task3.csproj.CoreCompileInputs.cache
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\obj\Debug\net6.0\HomeWork2_Task3.dll
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\obj\Debug\net6.0\refint\HomeWork2_Task3.dll
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\obj\Debug\net6.0\HomeWork2_Task3.pdb
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\obj\Debug\net6.0\HomeWork2_Task3.genruntimeconfig.cache
+D:\.NET (C#)\.Net_Camp_Signa\.NetCampViacheslavKasianenko\Homework_2_Kasianenko_Viacheslav\HomeWork2_Task3\HomeWork2_Task3\obj\Debug\net6.0\ref\HomeWork2_Task3.dll
