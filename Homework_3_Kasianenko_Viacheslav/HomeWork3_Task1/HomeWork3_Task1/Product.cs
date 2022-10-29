@@ -73,7 +73,7 @@ namespace HomeWork3_Task1
         {
             if ((percentage < 0) || (percentage >= 100))
             {
-                this.price *= (percentage / 100);
+                this.price *= (double)(percentage / 100);
             }
             else
             {

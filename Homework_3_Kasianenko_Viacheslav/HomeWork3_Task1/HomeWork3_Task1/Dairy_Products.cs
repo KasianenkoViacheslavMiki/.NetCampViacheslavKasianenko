@@ -56,16 +56,16 @@ namespace HomeWork3_Task1
             base.ChangePrice(percentage);
             if (termInDays>0 && termInDays <= 10)
             {
-                Price *= Price*((int)percentageTermInDays.smallTerm/100);
+                Price *= Price*((double)percentageTermInDays.smallTerm/100);
             }
             else if (termInDays > 10 && termInDays <= 50)
             {
-                Price *= Price * ((int)percentageTermInDays.mediumTerm / 100);
+                Price *= Price * ((double)percentageTermInDays.mediumTerm / 100);
 
             }
             else if (termInDays > 50)
             {
-                Price *= Price * ((int)percentageTermInDays.bigTerm / 100);
+                Price *= Price * ((double)percentageTermInDays.bigTerm / 100);
             }
         }
         //Override methods class Object

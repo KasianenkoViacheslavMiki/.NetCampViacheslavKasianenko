@@ -77,10 +77,10 @@ namespace HomeWork3_Task1
             switch (categoria)
             {
                 case categoriaMeat.First:
-                    this.Price *= ((int)categoriaMeat.First / 100);
+                    this.Price *= ((double)categoriaMeat.First / 100);
                     break;
                 case categoriaMeat.Second:
-                    this.Price *=  ((int)categoriaMeat.Second / 100);
+                    this.Price *=  ((double)categoriaMeat.Second / 100);
                     break;
                 default:
                     throw new Exception("Error change price meat");
