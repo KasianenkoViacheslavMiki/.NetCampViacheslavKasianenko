@@ -35,6 +35,14 @@ namespace HomeWork3_Task1
                 else quantity = value;
             }
         }
+        public void AddQuantity(int addQuantity)
+        {
+            Quantity += addQuantity;
+        }
+        public void SubtractQuantity(int substractQuantity)
+        {
+            Quantity -= substractQuantity;
+        }
         public double GetTotalPrice()
         {
             return Quantity * Product.Price;

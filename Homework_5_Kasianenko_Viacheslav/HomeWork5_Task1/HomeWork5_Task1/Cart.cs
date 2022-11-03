@@ -17,7 +17,7 @@ namespace HomeWork5_Task1
         public Cart(List<Buy> cartRows,Valute valute)
         {
             ValuteCart= valute;
-            CartRows = cartRows;
+            CartRows =new List<Buy>(cartRows);
         }
 
         public Cart()
@@ -29,7 +29,7 @@ namespace HomeWork5_Task1
         {
             get
             {
-                return cartRows;
+                return new List<Buy>(cartRows);
             }
             set
             {
@@ -37,7 +37,7 @@ namespace HomeWork5_Task1
                 {
                     List<Buy> valueList = new List<Buy>(value);
                     foreach (var item in valueList) item.Product = item.Product.ChangeValute(ValuteCart);
-                    cartRows = value;
+                    cartRows = valueList;
                 }
                 else throw new Exception("Value not list Buy");
             }
@@ -59,12 +59,12 @@ namespace HomeWork5_Task1
             Buy buyProduct = ThisProductHasInCart(productAdd);
             if (buyProduct!=null)
             {
-                buyProduct.Quantity += countAdd;
+                buyProduct.AddQuantity(countAdd);
             }
             else
             {
                 buyProduct = new Buy();
-                buyProduct.Quantity = countAdd;
+                buyProduct.AddQuantity(countAdd);
                 buyProduct.Product = (Product) product.Clone();
                 cartRows.Add(buyProduct);
             }
@@ -74,7 +74,7 @@ namespace HomeWork5_Task1
             Buy buyProduct = ThisProductHasInCart(product);
             if (buyProduct != null)
             {
-                buyProduct.Quantity -= countDelete;
+                buyProduct.SubtractQuantity(countDelete);
             }
             else
             {
@@ -82,7 +82,7 @@ namespace HomeWork5_Task1
             }
         }
         
-        public Buy ThisProductHasInCart(Product product) // Return reference on memory row in cartRows
+        private Buy ThisProductHasInCart(Product product) // Return reference on memory row in cartRows
         {
             Product checkProduct = (Product)product.Clone();
             foreach (var row in cartRows)
