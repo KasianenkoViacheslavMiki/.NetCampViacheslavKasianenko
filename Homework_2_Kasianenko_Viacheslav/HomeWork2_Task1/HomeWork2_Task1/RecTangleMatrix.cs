@@ -37,6 +37,8 @@ namespace HomeWork2_Task1
                 {
                     throw new ArgumentOutOfRangeException("Number rows must be not lower zero");
                 }
+                
+                // потрібно перевиділяти пам'ять
                 numberRows = value;
             } 
         }
@@ -49,6 +51,7 @@ namespace HomeWork2_Task1
                 { 
                     throw new ArgumentOutOfRangeException("Number collums must be not lower zero"); 
                 }
+                // потрібно перевиділяти пам'ять
                 numberCols = value;
             }
         }
@@ -68,7 +71,7 @@ namespace HomeWork2_Task1
                 bool down = true;
                 int i=0,j=0;
                 while ((k-1)!=(this.numberOfCells))
-                {
+                {//не оптимально!
                     tangleMatrix[i,j] = k;
                     k++;
                     if (down)
@@ -325,7 +328,7 @@ namespace HomeWork2_Task1
             string result = "";
             for (int i=0;i< NumberRows; i++) {
                 for (int j = 0; j < NumberCols; j++)
-                {
+                {// 10-чарівна константа Друк не оптимальний.
                     if (tangleMatrix[i, j]<10) result += " "+tangleMatrix[i, j] + " ";
                     else result += tangleMatrix[i, j] + " ";
                 }
