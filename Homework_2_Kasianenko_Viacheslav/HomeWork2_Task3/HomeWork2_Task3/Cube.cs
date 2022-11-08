@@ -40,7 +40,7 @@ namespace HomeWork2_Task3
 
         //Method for check cube does it`s have hole.
         public bool isHaveHole()
-        {
+        {// Не оптимально
             for (int y = 0; y < cube3D.GetLength(1); y++)
             {
                 for (int z = 0; z < cube3D.GetLength(2); z++)
