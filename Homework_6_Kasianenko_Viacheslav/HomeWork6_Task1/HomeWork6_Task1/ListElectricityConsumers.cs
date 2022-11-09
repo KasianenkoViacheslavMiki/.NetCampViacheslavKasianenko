@@ -40,6 +40,7 @@ namespace HomeWork6_Task1
             set
             {
                 if (value < 0) throw new ArgumentOutOfRangeException("numberQuarter not to be less zero");
+                if (value >4) throw new ArgumentOutOfRangeException("numberQuarter not to be more fourth");
                 numberQuarter = value;
             }
         }
