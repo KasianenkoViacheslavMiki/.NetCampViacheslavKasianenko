@@ -49,7 +49,7 @@ namespace HomeWork4_Task2
         }
         //Method for print Freqency table for all numbers
         public void FrequencyTable()
-        {
+        {// алгоритмічно не правильна реалізація
             int[] table = new int[0];
             for (int i = 0; i < arrayNumbers.Length; i++)
             {
@@ -123,6 +123,7 @@ namespace HomeWork4_Task2
                     }
                 }
             }
+            // Метод має шукати, а не роздруковувати.
             Console.WriteLine("First  high simple number " + firstNumber + " occurs " + countFirstNumber+ " Begin index "+(endFirstNumber- countFirstNumber) +" End index " + endFirstNumber);
             Console.WriteLine("Second high simple number " + secondNumber + " occurs " + countSecondNumber + " Begin index "+ (endSecondNumber - countSecondNumber) + " End index " + endSecondNumber);
         }
