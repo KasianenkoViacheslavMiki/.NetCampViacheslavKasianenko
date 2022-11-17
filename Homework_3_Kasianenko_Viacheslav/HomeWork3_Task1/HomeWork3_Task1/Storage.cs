@@ -122,6 +122,7 @@ namespace HomeWork3_Task1
             }
             return result;
         }
+        // Прив'язка до консолі в модельному класі!!!
         //Method for manual initialization of array products by console menu.
         public void ManualInitialization()
         {
