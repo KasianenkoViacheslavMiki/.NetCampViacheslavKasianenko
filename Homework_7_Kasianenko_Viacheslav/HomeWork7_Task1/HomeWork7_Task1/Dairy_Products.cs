@@ -9,7 +9,7 @@ namespace HomeWork3_Task1
 {
     public class Dairy_Products : Product
     {
-        private enum percentageTermInDays
+        private enum PercentageTermInDays
         {
             smallTerm = 60,
             mediumTerm = 40,
@@ -35,7 +35,7 @@ namespace HomeWork3_Task1
         }
         //Constructor
 
-        public Dairy_Products()
+        public Dairy_Products():base()
         {
             termInDays = 0;
         }
@@ -56,16 +56,16 @@ namespace HomeWork3_Task1
             base.ChangePrice(percentage);
             if (termInDays > 0 && termInDays <= 10)
             {
-                Price *= Price * ((int)percentageTermInDays.smallTerm / 100);
+                Price *= Price * ((int)PercentageTermInDays.smallTerm / 100);
             }
             else if (termInDays > 10 && termInDays <= 50)
             {
-                Price *= Price * ((int)percentageTermInDays.mediumTerm / 100);
+                Price *= Price * ((int)PercentageTermInDays.mediumTerm / 100);
 
             }
             else if (termInDays > 50)
             {
-                Price *= Price * ((int)percentageTermInDays.bigTerm / 100);
+                Price *= Price * ((int)PercentageTermInDays.bigTerm / 100);
             }
         }
         //Override methods class Object

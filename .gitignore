@@ -4,3 +4,9 @@
 *.1
 *.vsidx
 *.vsidx
+*.vsidx
+Homework_7_Kasianenko_Viacheslav/HomeWork7_Task1/.vs/HomeWork7_Task1/v17/.suo
+*.pdb
+/obj/
+/bin/
+/.vs/

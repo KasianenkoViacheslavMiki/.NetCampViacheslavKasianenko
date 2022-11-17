@@ -113,10 +113,10 @@
                             switch (tempCategoria)
                             {
                                 case 1:
-                                    newProduct.Categoria = categoriaMeat.First;
+                                    newProduct.Categoria = CategoriaMeat.First;
                                     break;
                                 case 2:
-                                    newProduct.Categoria = categoriaMeat.Second;
+                                    newProduct.Categoria = CategoriaMeat.Second;
                                     break;
                                 default:
                                     Console.WriteLine("No valid input");
@@ -137,16 +137,16 @@
                             switch (tempCategoria)
                             {
                                 case 1:
-                                    newProduct.Sort = sortMeat.Mutton;
+                                    newProduct.Sort = SortMeat.Mutton;
                                     break;
                                 case 2:
-                                    newProduct.Sort = sortMeat.Veal;
+                                    newProduct.Sort = SortMeat.Veal;
                                     break;
                                 case 3:
-                                    newProduct.Sort = sortMeat.Pork;
+                                    newProduct.Sort = SortMeat.Pork;
                                     break;
                                 case 4:
-                                    newProduct.Sort = sortMeat.Chicken;
+                                    newProduct.Sort = SortMeat.Chicken;
                                     break;
                                 default:
                                     Console.WriteLine("No valid input");

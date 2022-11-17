@@ -11,13 +11,13 @@ namespace HomeWork3_Task1
     // First categoria meat have percentage change price 50%
     // Second categoria meat have percentage change price 20%
 
-    public enum categoriaMeat
+    public enum CategoriaMeat
     {
         First = 50,
         Second = 20
     }
 
-    public enum sortMeat
+    public enum SortMeat
     {
         Mutton,
         Veal,
@@ -28,11 +28,11 @@ namespace HomeWork3_Task1
     public class Meat : Product
     {
         //Field
-        private categoriaMeat categoria;
-        private sortMeat sort;
+        private CategoriaMeat categoria;
+        private SortMeat sort;
 
         //Property
-        public categoriaMeat Categoria
+        public CategoriaMeat Categoria
         {
             get
             {
@@ -43,7 +43,7 @@ namespace HomeWork3_Task1
                 categoria = value;
             }
         }
-        public sortMeat Sort
+        public SortMeat Sort
         {
             get
             {
@@ -55,13 +55,13 @@ namespace HomeWork3_Task1
             }
         }
         //Constructor
-        public Meat()
+        public Meat():base()
         {
-            Categoria = new categoriaMeat();
-            Sort = new sortMeat();
+            Categoria = new CategoriaMeat();
+            Sort = new SortMeat();
         }
 
-        public Meat(string name, double price, double weight, Valute valuteCount, Unit massCount, categoriaMeat categoria, sortMeat sort) : base(name, price, weight, valuteCount,massCount)
+        public Meat(string name, double price, double weight, Valute valuteCount, Unit massCount, CategoriaMeat categoria, SortMeat sort) : base(name, price, weight, valuteCount,massCount)
         {
             Categoria = categoria;
             Sort = sort;
@@ -77,11 +77,11 @@ namespace HomeWork3_Task1
             base.ChangePrice(percentage);
             switch (categoria)
             {
-                case categoriaMeat.First:
-                    this.Price *= ((int)categoriaMeat.First / 100);
+                case CategoriaMeat.First:
+                    this.Price *= ((int)CategoriaMeat.First / 100);
                     break;
-                case categoriaMeat.Second:
-                    this.Price *= ((int)categoriaMeat.Second / 100);
+                case CategoriaMeat.Second:
+                    this.Price *= ((int)CategoriaMeat.Second / 100);
                     break;
                 default:
                     throw new Exception("Error change price meat");
