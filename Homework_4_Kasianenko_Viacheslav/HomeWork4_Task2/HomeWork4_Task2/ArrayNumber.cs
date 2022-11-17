@@ -67,7 +67,7 @@ namespace HomeWork4_Task2
         }
         //Method for 
         private bool IsPrime(int number)
-        {
+        {//Можна скоротити цикл
             for (int i = 2; i < number; i++)
             {
                 if (number % i == 0)
