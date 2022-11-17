@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace HomeWork3_Task1
 {
     public class Storage 
-    {
+    {// Масив не є ефективною колекцією для цього класу. ЇЇ слід було змвнити.
         private Product[] products;
         public Storage()
         {
