@@ -10,7 +10,7 @@ namespace HomeWork3_Task1
 
     // First categoria meat have percentage change price 50%
     // Second categoria meat have percentage change price 20%
-
+// Назва має бути з великої 
     public enum categoriaMeat
     {
         First  = 50,
@@ -54,6 +54,7 @@ namespace HomeWork3_Task1
             }
         }
         //Constructor
+        // Має бути public Meat(): base()
         public Meat()
         {
             Categoria = new categoriaMeat();
