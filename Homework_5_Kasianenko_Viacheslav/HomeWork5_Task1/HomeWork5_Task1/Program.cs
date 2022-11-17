@@ -5,7 +5,7 @@ namespace HomeWork5_Task1
     internal class Program
     {
         static void Main(string[] args)
-        {
+        {// Ваші бали 90	110	90	85	90
             Storage storage = new Storage(new Product[]
             {
                 new Product("Tea",23.23,2,Valute.grivna,Unit.gramm),
