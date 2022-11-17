@@ -219,16 +219,12 @@ namespace HomeWork3_Task1
         {
             public int Compare(Product? x, Product? y)
             {
-                if (x is Product obj1 && y is Product obj2)
-                {
-                    if (obj1.Price == obj2.Price)
-                        return 0;
-                    else if (obj1.Price > obj2.Price)
-                        return 1;
-                    else
-                        return -1;
-                }
-                throw new ArgumentException("Object not it Product");
+                if (x.Price == y.Price)
+                    return 0;
+                else if (x.Price > y.Price)
+                    return 1;
+                else
+                    return -1;
             }
         }
     }
