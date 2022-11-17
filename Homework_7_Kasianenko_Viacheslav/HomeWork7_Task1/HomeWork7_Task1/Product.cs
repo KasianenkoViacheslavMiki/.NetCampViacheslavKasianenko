@@ -28,7 +28,7 @@ namespace HomeWork3_Task1
         kg,
         gramm
     }
-    public class Product: IComparable<Product>, IComparer, ICloneable, IComparable
+    public class Product: IComparable<Product>, ICloneable, IComparable
     {
         //Field
         private string name;
@@ -204,21 +204,6 @@ namespace HomeWork3_Task1
             }
             return 0;
         }
-
-        public int Compare(object? x, object? y)
-        {
-            if (x is Product obj1 && y is Product obj2)
-            {
-                if (obj1.Price == obj2.Price)
-                    return 0;
-                else if (obj1.Price > obj2.Price)
-                    return 1;
-                else 
-                    return -1;
-            }
-            throw new ArgumentException("Object not it Product");
-        }
-
         virtual public object Clone()
         {
             return new Product(this.Name, this.Price, this.Weight,this.ValutePrice, this.UnitWeight);
@@ -229,6 +214,22 @@ namespace HomeWork3_Task1
             _ = other ?? throw new ArgumentException("Null");
 
             return this.name.CompareTo(other.name);
+        }
+        public class SortByName : IComparer<Product>
+        {
+            public int Compare(Product? x, Product? y)
+            {
+                if (x is Product obj1 && y is Product obj2)
+                {
+                    if (obj1.Price == obj2.Price)
+                        return 0;
+                    else if (obj1.Price > obj2.Price)
+                        return 1;
+                    else
+                        return -1;
+                }
+                throw new ArgumentException("Object not it Product");
+            }
         }
     }
 }
