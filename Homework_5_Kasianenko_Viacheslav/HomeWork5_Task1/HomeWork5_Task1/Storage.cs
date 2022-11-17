@@ -51,7 +51,7 @@ namespace HomeWork3_Task1
         }
         //Method for sort array name on alphabet order
         public void SortStorage()
-        {
+        {// Ефективніше сортувати за допомогою стандартного методу з класу Array
             var len = products.Length;
             for (var i = 1; i < len; i++)
             {
