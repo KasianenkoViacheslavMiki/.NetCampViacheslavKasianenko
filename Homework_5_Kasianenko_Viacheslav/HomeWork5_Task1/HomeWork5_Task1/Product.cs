@@ -72,7 +72,7 @@ namespace HomeWork3_Task1
                 return price;
             }
             set
-            {
+            {// Не перехоплюєте цей виняток.
                 if (value < 0) throw new ArgumentException("Price not to have less than zero");
                 else price = value;
             }
