@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HomeWork3_Task1
-{
+{// Не правильне використання IComparer. Він має бути в зовнішньому класі.
     public class Product: IComparable, IComparer
     {
         //Field
