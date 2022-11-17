@@ -21,7 +21,7 @@ namespace HomeWork3_Task1
             }
             Products = product;
         }
-
+// Порушення інкапсуляції. проблема не глибоких копій!!!
         public Product[] Products
         {
             get
