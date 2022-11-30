@@ -1,0 +1,187 @@
+ 1. 
+ Принцип єдиної відповідальності. 
+ Класи повинні нести в собі тільки одну мету. Тобто клас під назвою Насос повинний качати воду по трубам, але ніяк не гріти її чи показувати її температуру.
+ Приклад:
+ Єдина відповідальність в класі:
+ public class Pumb 
+ {
+	public void PumbWater()
+	{
+	//Реалізація
+	}
+ }
+ Вже лишнє яке потрібно виносити окремо:
+ public class Pumb 
+ {
+	public void PumbWater()
+	{
+	//Реалізація
+	}
+	public CheckTemper()
+	{
+	//Реалізація
+	}
+ }
+ Також принцип єдиної відповідальності має в собі те що для зміни класу потрібна бути одна причина. Тобто коли в класі Насос потрібно змінити метод як саме буде качатись вода по трубам.
+ Це є одна причина для зміни. Але коли в класі Насос багато не відповідних до його відповідальності методів, то кожен раз коли потрібно щось змінити в одному буде цілий каскад змін.
+ Тут буде дві причини змінити код так як коли потрібно буде змінити напрямок того як качає воду, і того коли потрібно змінити в яких показниках виводить температуру, або як її міряти.
+
+ public class Pumb 
+ {
+	private string namePumb;
+	private DateTime dateBuyPumb;
+	private int temperatur;
+	public void PumbWater()
+	{
+	//Реалізація
+	}
+	public string GetPumbName()
+	{
+	return namePumb;
+	}
+	public int GetTemparatur()
+	{
+	return temperatur;
+	}
+ }
+2.Принцип відкритості/закритості
+ Принцип в якому говориться що все в коді програми повинно буто закрито для модифікації, але відкрито для розширення. 
+ Не можна щось міняти вже в стабільно працюючому коді. Тільки його доповнювати через інтерфейси, успадкування.
+ Тобто наприклад коли є клас БанківськийРахунок в гривнях і він має в собі метод комісії за зняття з рахунку.
+ public class БанківськийРахунок
+ {
+	private string nameUser;
+	private double countBank;
+	public void Комісія()
+	{
+	//Реалізація отоплення від бойлера
+	}
+ }
+ Але появилась потреба добавити в програму що банківський рахунок може бути в долларах, і мати свою комісію. І для цього прийдеться змінювати клас.
+public class БанківськийРахунок
+ {
+	private string nameUser;
+	private string valute;
+	private double countBank;
+	public void Комісія()
+	{
+	if (valute=="грн")	//комісія для грн
+	else //комісія для долларів
+	}
+ }
+ Але це порушує принцип відкритості/закритості де сказано що для модифікації сутності повинні бути закриті. 
+ Тому ми просто винесемо все про валюту та її комісії в другий клас та інтерфейс.
+ public interface IMoney
+ {
+	private string nameValute;
+	public void Комісія();
+ }
+public class Dollar:IMoney
+{
+	private string nameValute;
+	public void Комісія()
+	{
+	//комісія для доллар
+	}
+}
+public class Grn:IMoney
+{
+	private string nameValute;
+	public void Комісія()
+	{
+	//комісія для гривнів
+	}
+}
+public class БанківськийРахунок
+ {
+	private string nameUser;
+	private IMoney valute;
+	private double countBank;
+	public БанківськийРахунок(IMoney _valute)
+	{
+		valute = _valute;
+	}
+	public void Комісія()
+	{
+		valute.Комісія();
+	}
+ }
+ 3.Принцип підстановки Ліскова
+ Це принцип підстановки того щоб класи, функції і т.д. мали змогу використовувати підтипи батьківсього типу. Це досягається за допомогою наслідування та інтерфейсів.
+ Наприклад є загальне розуміння тварина яка живе на землі, і дихає повітрям. У всіх тварин точно є кінцівки якими вони передвигаються, і метод те як вони передвигаються різний
+ public class ТваринаЗемногоСвіту
+ {
+	private string name;
+	private string countLegs;
+	public void Передвигатись(){//Реалізація}
+ }
+ public class Собака:ТваринаЗемногоСвіту
+ {
+	private string name;
+	private string countLegs;
+	public void Передвигатись(){Бігти()}
+	private void Бігти(){//Реалізація}
+ }
+ public class Мавпа:ТваринаЗемногоСвіту
+ {
+	private string name;
+	private string countLegs;
+	public void Передвигатись(){ГойдатисьПоДеревям()}
+	private void ГойдатисьПоДеревям(){//Реалізація}
+ }
+ 4. Принцип розподілених інтерфейсів
+ Інтерфейси повинні бути з тільки потрібним для класу/сутності функціоналом. Тобто для класу ReadFile потрібно мати методи які тільки читають файл. Для класу ActionFile всі дії з файлом.
+ public interface IReadFile
+ {
+	public string[] ReadFile(string path);
+ }
+ public interface IWriteFile
+ {
+	public bool WriteFile(string path, string[] content);
+ }
+ public class ReadFile:IReadFile,IWriteFile
+ {
+ public string[] ReadFile(string path)
+ {
+ //Реалізація
+ }
+  public string[] WriteFile(string path)
+ {
+ //Реалізація
+ }
+ }
+ public class ReadFile:IReadFile
+ {
+ public string[] ReadFile(string path)
+ {
+ //Реалізація
+ }
+ }
+ 5. Принцип інверсії залежностей
+ Всі класи не повинні залежити від других класів які не є абстрактними або не інтерфейсів. Тобто потрібно використовувати саме потрібно інтерфейс чи абстрактний клас.
+ Наприклад є банк. В банка є банківські рахунки. Створимо абстрактний клас з узагальненими методами. 
+ public abstract class Card{
+	private string _numberCard;
+	private double _countCard;
+	
+	public void InputMoney(double money)
+	{
+	//реалізація
+	}
+ }
+ І тепер від нього можна створити зарплатна карта на яку можна положити гроші і зняти гроші. Та депозитну на яку тільки покласти.
+ public interface IOutPutMoney
+ {
+	public void OutPutMoney(double money);
+ }
+ public class PaymentCard:Card,IOutPutMoney
+ {
+	public void OutPutMoney(double money){
+	//реалізація
+	}
+ }
+ public class DebetCard:Card
+ {
+	private DateTime whenReturn;
+ }
+ 

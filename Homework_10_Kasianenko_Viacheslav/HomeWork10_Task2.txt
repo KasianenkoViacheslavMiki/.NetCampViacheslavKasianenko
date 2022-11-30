@@ -1,0 +1,56 @@
+Як на мене в прикладі про наслідування від прямокутника до квадрата є порушенням принципа Ліскова. 
+Ось чому
+public class Rectangle
+{
+	private double height;
+	private double width;
+	public double Height{get;set;}
+	public double Width{get;set;}
+}
+Прямокутник має дві різні сторони. 
+public class Squere:Rectangle
+{
+	//Те що наслідується private double height;
+	//Те що наслідується private double width;
+	//Те що наслідується public double Height{get;set;}
+	//Те що наслідується public double Width{get;set;}
+}
+І при наслідувані ми отримаємо дві сторони також. Які вже порушують логіку так як клас квадрата повинний мати тільки один параметр. Але і це можна обійти все ж таки через Властивості.
+public class Rectangle
+{
+	private double height;
+	private double width;
+	public double Height{get;set;}
+	public double Width{get;set;}
+}
+
+public class Squere:Rectangle
+{
+	public double Height
+	{
+	get
+	{
+	return base.Height;
+	}
+	set
+	{
+		Height = value;
+		Width = value;
+	}
+	}
+
+	public double Width
+	{
+	get
+	{
+	return base.Width;
+	}
+	set
+	{
+		Height = value;
+		Width = value;
+	}
+	}
+}
+Але це все надстройки для того щоб привести реальний обьєкт до програмного. Тому як на мене то тут є порушення тому що повинно було використано абстрактний клас фігура.
+Або інтерфейс IShape для класу Shape і вже від нього наслідувати що квадрат що прямокутник. 
