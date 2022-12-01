@@ -60,7 +60,7 @@ namespace HomeWork8_Task1.Model
         //Method for sort array name on alphabet order
         public void SortStorage()
         {
-            ToProductsList().Sort();
+            products = products.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
         }
 
         //Method for change all price products
