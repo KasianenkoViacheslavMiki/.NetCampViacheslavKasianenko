@@ -27,12 +27,31 @@ namespace HomeWork8_Task1
             IOfferEvent offerEvent = new OfferEvent();
 
             IOfferManager offerManager = new OfferManager();
-
-            offerManager.InitialisationOfferManager();
-
+            try
+            {
+                offerManager.InitialisationOfferManager();
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             offerManager.AddEventOffer(offerEvent.OnOfferWriteFileEvent);
-
-            offerManager.RealizationOffer(storage);
+            try
+            {
+                offerManager.RealizationOffer(storage);
+            }
+            catch (InvalidDataException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
         }
 

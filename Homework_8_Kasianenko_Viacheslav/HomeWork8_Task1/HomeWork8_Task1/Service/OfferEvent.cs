@@ -14,7 +14,7 @@ namespace HomeWork8_Task1.Service
         {
             if (sender is not IOfferProduct)
             {
-                throw new InvalidDataException("Sender nor be a offer");
+                throw new InvalidDataException("Sender not be a offer");
             }
             bool beginWriteFile;
             if (!bool.TryParse(content[0].ValueString,out beginWriteFile))
