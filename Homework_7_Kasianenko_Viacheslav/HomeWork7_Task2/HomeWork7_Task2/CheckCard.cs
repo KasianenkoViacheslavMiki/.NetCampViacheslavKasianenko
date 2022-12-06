@@ -9,7 +9,7 @@ namespace HomeWork7_Task2
     static public class CheckCard
     {
         public static string InfoCheckCard(string _numberCard)
-        {
+        {// є повтор коду, якого можна уникнути!!!
             string numberCard = _numberCard;
             int lengthNumberCard = numberCard.Length;
             if (!IsNumberCardAllNumber(numberCard))
