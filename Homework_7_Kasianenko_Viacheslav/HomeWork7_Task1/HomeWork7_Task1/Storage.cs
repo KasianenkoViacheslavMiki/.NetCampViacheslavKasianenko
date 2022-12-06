@@ -91,6 +91,7 @@ namespace HomeWork3_Task1
             SortedSet<Product> setSecondStorage = secondStorage.UnicalProduct();
             return setFirstStorage.Intersect(setSecondStorage).ToList();
         }
+        //показати в групі при обговоренні
         public List<Product> UnionProductInStorages(Storage secondStorage)
         {
             SortedSet<Product> setFirstStorage = this.UnicalProduct();
