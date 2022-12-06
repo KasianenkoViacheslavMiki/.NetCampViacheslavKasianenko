@@ -59,69 +59,139 @@ namespace HomeWork9_Task2
             Shuffle(ref productsListClone);
 
             dateTime = DateTime.Now;
-            ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            try
+            {
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
             dateTime1 = DateTime.Now;
 
             Console.WriteLine("End " + (dateTime1- dateTime).TotalMilliseconds);
             Shuffle(ref productsListClone);
 
             dateTime = DateTime.Now;
-            ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.begin);
+            try
+            {
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             dateTime1 = DateTime.Now;
 
             Console.WriteLine("Begin "+ (dateTime1 - dateTime).TotalMilliseconds);
             Shuffle(ref productsListClone);
 
             dateTime = DateTime.Now;
-            ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.random);
+            try
+            {
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             dateTime1 = DateTime.Now;
 
             Console.WriteLine("Random "+ (dateTime1 - dateTime).TotalMilliseconds);
             Shuffle(ref productsListClone);
 
             dateTime = DateTime.Now;
-            ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            try
+            {
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             dateTime1 = DateTime.Now;
 
             Console.WriteLine("End "+ (dateTime1 - dateTime).TotalMilliseconds);
             Shuffle(ref productsListClone);
 
             dateTime = DateTime.Now;
-            ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            try
+            {
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             dateTime1 = DateTime.Now;
 
             Console.WriteLine("End " + (dateTime1 - dateTime).TotalMilliseconds); Shuffle(ref productsListClone);
 
             dateTime = DateTime.Now;
-            ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            try
+            {
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             dateTime1 = DateTime.Now;
 
             Console.WriteLine("End " + (dateTime1 - dateTime).TotalMilliseconds);
             Shuffle(ref productsListClone);
 
             dateTime = DateTime.Now;
-            ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.begin);
+            try
+            {
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             dateTime1 = DateTime.Now;
 
             Console.WriteLine("Begin " + (dateTime1 - dateTime).TotalMilliseconds);
             Shuffle(ref productsListClone);
 
             dateTime = DateTime.Now;
-            ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.random);
+            try
+            {
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             dateTime1 = DateTime.Now;
 
             Console.WriteLine("Random " + (dateTime1 - dateTime).TotalMilliseconds);
             Shuffle(ref productsListClone);
 
             dateTime = DateTime.Now;
-            ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            try
+            {
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             dateTime1 = DateTime.Now;
 
             Console.WriteLine("End " + (dateTime1 - dateTime).TotalMilliseconds);
             Shuffle(ref productsListClone);
 
             dateTime = DateTime.Now;
-            ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            try
+            {
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             dateTime1 = DateTime.Now;
 
             Console.WriteLine("End " + (dateTime1 - dateTime).TotalMilliseconds);

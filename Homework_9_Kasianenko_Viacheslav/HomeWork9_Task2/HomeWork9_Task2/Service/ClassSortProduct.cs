@@ -27,8 +27,17 @@ namespace HomeWork9_Task2.Service
         }
         static public void SortProduct(ref List<Product> products, SupportingElement supportingElement)
         {
+            if (products == null) throw new Exception("Product is null");
+
             Product[] arrayProduct = products.ToArray();
+            try 
+            { 
             QuickSort(ref arrayProduct, 0, arrayProduct.Length-1, supportingElement);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("QuickSort now work valid "+e.Message);
+            }
             products = arrayProduct.ToList();
         }
     }
