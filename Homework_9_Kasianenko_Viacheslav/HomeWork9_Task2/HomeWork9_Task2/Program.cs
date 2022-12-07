@@ -58,7 +58,8 @@ namespace HomeWork9_Task2
             DateTime dateTime1;
             Shuffle(ref productsListClone);
 
-            dateTime = DateTime.Now;
+            var sw = new System.Diagnostics.Stopwatch();
+
             try
             {
                 ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
@@ -67,12 +68,13 @@ namespace HomeWork9_Task2
             {
                 Console.WriteLine(ex.Message);
             }
-            dateTime1 = DateTime.Now;
 
-            Console.WriteLine("End " + (dateTime1- dateTime).TotalMilliseconds);
+            sw.Stop();
+            Console.WriteLine("Час сортування з опорним пунктом з кінця: {0}", sw.Elapsed.ToString());
             Shuffle(ref productsListClone);
 
-            dateTime = DateTime.Now;
+            sw = new System.Diagnostics.Stopwatch();
+
             try
             {
                 ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
@@ -81,120 +83,39 @@ namespace HomeWork9_Task2
             {
                 Console.WriteLine(ex.Message);
             }
-            dateTime1 = DateTime.Now;
 
-            Console.WriteLine("Begin "+ (dateTime1 - dateTime).TotalMilliseconds);
+            sw.Stop();
+            Console.WriteLine("Час сортування з опорним пунктом з кінця: {0}", sw.Elapsed.ToString());
             Shuffle(ref productsListClone);
 
-            dateTime = DateTime.Now;
+            sw = new System.Diagnostics.Stopwatch();
+
             try
             {
-                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.begin);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            dateTime1 = DateTime.Now;
 
-            Console.WriteLine("Random "+ (dateTime1 - dateTime).TotalMilliseconds);
+            sw.Stop();
+            Console.WriteLine("Час сортування з опорним пунктом з початку: {0}", sw.Elapsed.ToString());
             Shuffle(ref productsListClone);
 
-            dateTime = DateTime.Now;
+            sw = new System.Diagnostics.Stopwatch();
+
             try
             {
-                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
+                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.random);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            dateTime1 = DateTime.Now;
 
-            Console.WriteLine("End "+ (dateTime1 - dateTime).TotalMilliseconds);
-            Shuffle(ref productsListClone);
-
-            dateTime = DateTime.Now;
-            try
-            {
-                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            dateTime1 = DateTime.Now;
-
-            Console.WriteLine("End " + (dateTime1 - dateTime).TotalMilliseconds); Shuffle(ref productsListClone);
-
-            dateTime = DateTime.Now;
-            try
-            {
-                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            dateTime1 = DateTime.Now;
-
-            Console.WriteLine("End " + (dateTime1 - dateTime).TotalMilliseconds);
-            Shuffle(ref productsListClone);
-
-            dateTime = DateTime.Now;
-            try
-            {
-                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            dateTime1 = DateTime.Now;
-
-            Console.WriteLine("Begin " + (dateTime1 - dateTime).TotalMilliseconds);
-            Shuffle(ref productsListClone);
-
-            dateTime = DateTime.Now;
-            try
-            {
-                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            dateTime1 = DateTime.Now;
-
-            Console.WriteLine("Random " + (dateTime1 - dateTime).TotalMilliseconds);
-            Shuffle(ref productsListClone);
-
-            dateTime = DateTime.Now;
-            try
-            {
-                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            dateTime1 = DateTime.Now;
-
-            Console.WriteLine("End " + (dateTime1 - dateTime).TotalMilliseconds);
-            Shuffle(ref productsListClone);
-
-            dateTime = DateTime.Now;
-            try
-            {
-                ClassSortProduct.SortProduct(ref productsListClone, SupportingElement.end);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            dateTime1 = DateTime.Now;
-
-            Console.WriteLine("End " + (dateTime1 - dateTime).TotalMilliseconds);
+            sw.Stop();
+            Console.WriteLine("Час сортування з опорним пунктом рандомно: {0}", sw.Elapsed.ToString());
 
         }
         private static Random rng = new Random();
