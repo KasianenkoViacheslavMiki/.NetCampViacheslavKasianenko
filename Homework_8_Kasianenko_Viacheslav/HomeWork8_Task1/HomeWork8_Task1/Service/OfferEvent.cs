@@ -12,10 +12,11 @@ namespace HomeWork8_Task1.Service
     {
         public void OnOfferWriteFileEvent(StreamWriter streamWriter, StringEventArgs[] content)
         {
-         string row = content[0].ValueString;
-         row += "\nСуміжні товари якими можливо замінити\n";
-         for (int i = 1; i < content.Length; i++) row+=content[i].ValueString+" | ";
-         streamWriter.WriteLine(row+"\n");
+            string row = content[0].ValueString;
+            row += "\nСуміжні товари якими можливо замінити\n";
+            for (int i = 1; i < content.Length; i++) 
+                row+=content[i].ValueString+" | ";
+            streamWriter.WriteLine(row+"\n");
         }
     }
 }

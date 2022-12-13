@@ -17,9 +17,11 @@ namespace HomeWork8_Task1.Service
             foreach (string str in strings)
             {
                 string[] split = str.Split("|");
-                if (split.Length == 0 || split.Length < 3) throw new Exception("Not valid string offer for parse");
+                if (split.Length == 0 || split.Length < 3) 
+                    throw new Exception("Not valid string offer for parse");
                 uint tempQuantity;
-                if (!uint.TryParse(split[2],out tempQuantity)) throw new Exception("Not valid string for parse in uint");
+                if (!uint.TryParse(split[2],out tempQuantity)) 
+                    throw new Exception("Not valid string for parse in uint");
                 result.Add(new OfferProduct(split[0], split[1],tempQuantity));
             }
             return result;
@@ -32,7 +34,8 @@ namespace HomeWork8_Task1.Service
             foreach (string str in strings)
             {
                 string[] split = str.Split("-");
-                if (split.Length !=2) throw new Exception("Not valid string for parse");
+                if (split.Length !=2) 
+                    throw new Exception("Not valid string for parse");
                 string[] splitRelatedProduct = split[1].Split(",");
                 result.Add(split[0],splitRelatedProduct);
             }

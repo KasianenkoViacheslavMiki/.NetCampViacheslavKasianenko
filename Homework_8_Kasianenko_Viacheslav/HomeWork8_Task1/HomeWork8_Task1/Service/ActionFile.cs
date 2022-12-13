@@ -12,7 +12,8 @@ namespace HomeWork8_Task1.Service
     {
         public string[] ReadFile(string path)
         {
-            if (!File.Exists(path)) throw new FileNotFoundException(path + " not found");
+            if (!File.Exists(path)) 
+                throw new FileNotFoundException(path + " not found");
             List<string> strings = new List<string>();
             using (StreamReader readOnlyStream = File.OpenText(path))
             {

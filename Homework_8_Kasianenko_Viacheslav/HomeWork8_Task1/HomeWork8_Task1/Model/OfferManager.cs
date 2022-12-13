@@ -128,7 +128,8 @@ namespace HomeWork8_Task1.Model
                     {
                         List<StringEventArgs> stringEventArgs = new List<StringEventArgs>();
                         stringEventArgs.Add(new StringEventArgs("| Не може бути реалізовано заказ: "+offer.ToString()));
-                        foreach (string name in nameReletedProduct[offer.NameProduct]) stringEventArgs.Add(new StringEventArgs(name));
+                        foreach (string name in nameReletedProduct[offer.NameProduct]) 
+                            stringEventArgs.Add(new StringEventArgs(name));
                         NotCanBeRealizationOffer?.Invoke(streamWriter, stringEventArgs.ToArray());
                     }
                 }
