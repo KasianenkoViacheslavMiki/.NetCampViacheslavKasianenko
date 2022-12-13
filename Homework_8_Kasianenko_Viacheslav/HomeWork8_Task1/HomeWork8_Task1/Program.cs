@@ -3,7 +3,6 @@ using HomeWork8_Task1.Interface;
 using HomeWork8_Task1.Model;
 using HomeWork8_Task1.Service;
 using System.Text;
-using static HomeWork8_Task1.Interface.IOfferProduct;
 
 namespace HomeWork8_Task1
 {
@@ -12,6 +11,9 @@ namespace HomeWork8_Task1
        
         static void Main(string[] args)
         {
+            string pathOffer = "ProductOffers.txt";
+            string pathReletedProduct = "ProductRelated.txt";
+            string pathResult = "result.txt";
             Console.OutputEncoding = UTF8Encoding.UTF8;
             Storage storage = new Storage(new Dictionary<Product, uint>
             {
@@ -24,25 +26,18 @@ namespace HomeWork8_Task1
                 { new Product("Макарони \"З лану до столу\"",23.23,2,Valute.grivna,Unit.kg),50}
             });
 
-            IOfferEvent offerEvent = new OfferEvent();
+            OfferAction offerAction = new OfferAction();
 
-            IOfferManager offerManager = new OfferManager();
+            OfferManager offerManager = new OfferManager();
             try
             {
-                offerManager.InitialisationOfferManager();
+                offerManager.InitialisationOfferManager(pathOffer, pathReletedProduct);
+                offerManager.NotCanBeRealizationOffer+= offerAction.OnOfferWriteFileEvent;
+                offerManager.RealizationOffer(storage, pathResult);
             }
             catch (FileNotFoundException ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            offerManager.AddEventOffer(offerEvent.OnOfferWriteFileEvent);
-            try
-            {
-                offerManager.RealizationOffer(storage);
             }
             catch (InvalidDataException ex)
             {
@@ -51,9 +46,7 @@ namespace HomeWork8_Task1
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-
+            }            
         }
-
     }
 }

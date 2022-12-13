@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace HomeWork8_Task1.Model
 {
-    public class OfferManager : IOfferManager
+    public class OfferManager 
     {
-        readonly string pathOffer = "ProductOffers.txt";
-        readonly string pathReletedProduct = "ProductRelated.txt";
+        public event Action<StreamWriter,StringEventArgs[]> NotCanBeRealizationOffer;
+
+
         readonly IReadFile readFile = new ActionFile(); 
 
         private IDictionary<string, string[]> nameReletedProduct;
-        private IList<IOfferProduct> offerProducts;
-        public IList<IOfferProduct> OfferProduct 
+        private IList<OfferProduct> offerProducts;
+        public IList<OfferProduct> OfferProduct 
         {
             get
             {
@@ -40,7 +41,7 @@ namespace HomeWork8_Task1.Model
             }
         }
 
-        public void InitialisationOfferManager()
+        public void InitialisationOfferManager(string pathOffer, string pathReletedProduct)
         {
             try 
             { 
@@ -65,7 +66,7 @@ namespace HomeWork8_Task1.Model
         }
         private void ReadOffers(string path)
         {
-            IParseOfferProduct parseOfferProduct = new ParseString();
+            ParseString parseOfferProduct = new ParseString();
 
             string[] content;
             try
@@ -82,7 +83,7 @@ namespace HomeWork8_Task1.Model
             }
             try
             {
-                offerProducts = parseOfferProduct.IParseOfferProduct(content);
+                offerProducts = parseOfferProduct.ParseOfferProduct(content);
             }
             catch (Exception ex)
             {
@@ -91,7 +92,7 @@ namespace HomeWork8_Task1.Model
         }
         private void ReadReletedProduct(string path)
         {
-            IParseRelatedProduct parseReletedProduct = new ParseString();
+            ParseString parseReletedProduct = new ParseString();
             string[] content;
             try
             {
@@ -107,42 +108,30 @@ namespace HomeWork8_Task1.Model
             }
             try
             {
-                nameReletedProduct = parseReletedProduct.IParseRelatedProduct(content);
+                nameReletedProduct = parseReletedProduct.ParseRelatedProduct(content);
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
-        public void RealizationOffer(Storage storage)
+        public void RealizationOffer(Storage storage,string pathResult)
         {
             Product findProduct;
             uint quantity;
-            bool beginWriteFile=true;
-            foreach (IOfferProduct offer in offerProducts)
+            using (StreamWriter streamWriter = new StreamWriter(pathResult))
             {
-                findProduct = storage.FindProductInStorage(offer.NameProduct, out quantity);
-                if (findProduct == null || !(quantity > offer.QuantityProduct))
+                foreach (OfferProduct offer in offerProducts)
                 {
-                    offer.InvokeEventNotCanBeRealizationOffer(nameReletedProduct[offer.NameProduct],beginWriteFile);
-                    beginWriteFile = false;
+                    findProduct = storage.FindProductInStorage(offer.NameProduct, out quantity);
+                    if (findProduct == null || !(quantity > offer.QuantityProduct))
+                    {
+                        List<StringEventArgs> stringEventArgs = new List<StringEventArgs>();
+                        stringEventArgs.Add(new StringEventArgs("| Не може бути реалізовано заказ: "+offer.ToString()));
+                        foreach (string name in nameReletedProduct[offer.NameProduct]) stringEventArgs.Add(new StringEventArgs(name));
+                        NotCanBeRealizationOffer?.Invoke(streamWriter, stringEventArgs.ToArray());
+                    }
                 }
-            }
-        }
-
-        public void AddEventOffer(IOfferEvent.OfferHandler any)
-        {
-            foreach (IOfferProduct offer in offerProducts)
-            {
-                offer.NotCanBeRealizationOffer+= any;
-            }
-        }
-
-        public void RemoveEventOffer(IOfferEvent.OfferHandler any)
-        {
-            foreach (IOfferProduct offer in offerProducts)
-            {
-                offer.NotCanBeRealizationOffer -= any;
             }
         }
     }

@@ -8,20 +8,19 @@ using System.Threading.Tasks;
 
 namespace HomeWork8_Task1.Model
 {
-    public class OffersProduct : IOfferProduct
+    public class OfferProduct
     {
-        public event IOfferEvent.OfferHandler NotCanBeRealizationOffer;
         private string nameCorp;
         private string nameProduct;
         private uint quantityProduct;
 
-        public OffersProduct()
+        public OfferProduct()
         {
             NameCorp = null;
             NameProduct = null;
             QuantityProduct = 0;
         }
-        public OffersProduct(string nameCorp, string nameProduct, uint countProduct)
+        public OfferProduct(string nameCorp, string nameProduct, uint countProduct)
         {
             NameCorp = nameCorp;
             NameProduct = nameProduct;
@@ -60,15 +59,6 @@ namespace HomeWork8_Task1.Model
             {
                 quantityProduct = value;
             }
-        }
-        public void InvokeEventNotCanBeRealizationOffer(string[] nameRelatedProduct, bool beginWriteText)
-        {
-            List<StringEventArgs> stringEventArgs = new List<StringEventArgs>();
-            stringEventArgs.Add(new StringEventArgs(beginWriteText.ToString()));
-            stringEventArgs.Add(new StringEventArgs("result.txt"));
-            stringEventArgs.Add(new StringEventArgs(this.ToString()));  
-            foreach (string name in nameRelatedProduct) stringEventArgs.Add(new StringEventArgs(name));
-            NotCanBeRealizationOffer?.Invoke(this, stringEventArgs.ToArray());
         }
 
         public override string? ToString()

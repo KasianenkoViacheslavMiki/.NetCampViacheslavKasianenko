@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace HomeWork8_Task1.Service
 {
-    public class ParseString : IParseOfferProduct, IParseRelatedProduct
+    public class ParseString   
     {
-        public IList<IOfferProduct> IParseOfferProduct(string[] strings)
+        public IList<OfferProduct> ParseOfferProduct(string[] strings)
         {
-            IList<IOfferProduct> result = new List<IOfferProduct>();
+            IList<OfferProduct> result = new List<OfferProduct>();
 
             foreach (string str in strings)
             {
@@ -20,12 +20,12 @@ namespace HomeWork8_Task1.Service
                 if (split.Length == 0 || split.Length < 3) throw new Exception("Not valid string offer for parse");
                 uint tempQuantity;
                 if (!uint.TryParse(split[2],out tempQuantity)) throw new Exception("Not valid string for parse in uint");
-                result.Add(new OffersProduct(split[0], split[1],tempQuantity));
+                result.Add(new OfferProduct(split[0], split[1],tempQuantity));
             }
             return result;
         }
 
-        public IDictionary<string, string[]> IParseRelatedProduct(string[] strings)
+        public IDictionary<string, string[]> ParseRelatedProduct(string[] strings)
         {
             IDictionary<string, string[]> result = new Dictionary<string, string[]>();
 
