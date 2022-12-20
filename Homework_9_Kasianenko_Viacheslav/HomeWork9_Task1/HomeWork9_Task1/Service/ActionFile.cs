@@ -13,6 +13,11 @@ namespace HomeWork9_Task1.Service
 {
     static public class ActionFile 
     {
+        static public void DeleteFile(List<string> paths)
+        {
+            foreach (string path in paths)
+                File.Delete(path);
+        }
         static public void WriteFile(string path, string[] strings)
         {
             using (StreamWriter sw = new StreamWriter(path))

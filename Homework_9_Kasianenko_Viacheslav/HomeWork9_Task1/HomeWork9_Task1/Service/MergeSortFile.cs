@@ -39,19 +39,27 @@ namespace HomeWork9_Task1.Service
                 streamReaders.Add(new StreamReader(file));
             }
             ArrayCell numberInput = new ArrayCell(stringsNameFile.Count);
+
             using (StreamWriter streamWriter = new StreamWriter(outputPath,false))
             {
-                int i; int p;
+                int i; int number;
                 for (i = 0; i < numberInput.GetLength(); i++)
                 {
                     value = "";
-                    while ((l = streamReaders[i].Read()) != ' ' && l !=-1) value += (char)l;
-                    if (!Int32.TryParse(value,out p)) throw new Exception("Error parse");
-                    numberInput[i].element = p;
+
+                    while ((l = streamReaders[i].Read()) != ' ' && l !=-1) 
+                        value += (char) l;
+
+                    if (!Int32.TryParse(value,out number)) 
+                        throw new Exception("Error parse");
+
+                    numberInput[i].element = number;
                     numberInput[i].fileNumber = i;
                 }
+
                 int count = 0;
                 Cell min=new Cell();
+
                 while (count != i)
                 {
                     value = "";
@@ -66,19 +74,25 @@ namespace HomeWork9_Task1.Service
                         }
                         value += (char)l;
                     }
-                    if (value == "\r\n") value = Int32.MaxValue.ToString();
+
+                    if (value == "\r\n") 
+                        value = Int32.MaxValue.ToString();
                     
-                    if (!Int32.TryParse(value, out p)) throw new Exception("Error parse");
-                    numberInput[min.fileNumber].element = p;
+                    if (!Int32.TryParse(value, out number)) 
+                        throw new Exception("Error parse");
+
+                    numberInput[min.fileNumber].element = number;
                 }
                 streamWriter.Close();
             }
-            foreach (var item in streamReaders) item.Close();
+            foreach (var item in streamReaders) 
+                item.Close();
         }
         public void ExternalSort(string inputPath= "input.txt", string outputPath= "RESULT.txt")
         {
             List<string> stringsNameFile = this.InitSort(inputPath);
             MergeFiles(outputPath, stringsNameFile);
+            ActionFile.DeleteFile(stringsNameFile);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace HomeWork9_Task1
         {
             //Генерація файла чисел.
             ActionFile.WriteFile("input.txt", new Generate().GenerateList(50, 60 , 0, 50).ToArray());
+
             new MergeSortFile().ExternalSort("input.txt");
         }
     }
