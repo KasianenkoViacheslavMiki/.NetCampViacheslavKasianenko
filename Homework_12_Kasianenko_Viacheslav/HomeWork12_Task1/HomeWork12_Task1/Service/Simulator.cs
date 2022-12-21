@@ -1,4 +1,5 @@
-﻿using HomeWork12_Task1.Model;
+﻿using HomeWork12_Task1.Action;
+using HomeWork12_Task1.Model;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -91,26 +92,29 @@ namespace HomeWork12_Task1.Service
         }
         
         //Прихід пассажира
-        private void WentPassenger(Passenger passenger)
+
+        //private void WentPassenger(Passenger passenger)
+        //{
+        //    (int, int) coordinateWentPassenger;
+        //    lock (locker)
+        //    {
+        //        coordinateWentPassenger = exitsCoordinat[random.Next(0, exitsCoordinat.Count)];
+        //    }
+
+        //    TicketOffice ticketOffice = GetNeedTicketOffice(coordinateWentPassenger);
+
+        //    ticketOffice.AddPassangerToQueue(passenger,(int)passenger.Status);
+
+        //    if (ticketOffice.Count > queueNorm)
+        //    {
+        //        OnOverNorm?.Invoke(ticketOffice);
+        //        ActionOverNorm(ticketOffice);
+        //    }
+        //}
+        private void WentPassenger(Passenger passenger, (int, int) coordinateWentPassenger)
         {
-            (int, int) coordinateWentPassenger;
-            lock (locker)
-            {
-                coordinateWentPassenger = exitsCoordinat[random.Next(0, exitsCoordinat.Count)];
-            }
+            IMinTicketOffice minTicketOffice = null;
 
-            TicketOffice ticketOffice = GetNeedTicketOffice(coordinateWentPassenger);
-
-            ticketOffice.AddPassangerToQueue(passenger,(int)passenger.Status);
-
-            if (ticketOffice.Count > queueNorm)
-            {
-                OnOverNorm?.Invoke(ticketOffice);
-                ActionOverNorm(ticketOffice);
-            }
-        }
-        private void ReWentPassenger(Passenger passenger, (int, int) coordinateWentPassenger)
-        {
             TicketOffice ticketOffice = GetNeedTicketOffice(coordinateWentPassenger);
 
             ticketOffice.AddPassangerToQueue(passenger, (int)passenger.Status);
@@ -137,20 +141,10 @@ namespace HomeWork12_Task1.Service
                 }
             }
 
-            double min = equal? listTicketOffice[0].GetDistance(coordinateWentPassenger): listTicketOffice[0].Count;
+            IMinTicketOffice minTicketOffice = equal? new MinTicketDistance() : new MinCount();
 
-            for (int i = 1; i < listTicketOffice.Count; i++)
-            {
-                if (listTicketOffice[i].IsOpen )
-                {
-                    double tempValue = equal ? listTicketOffice[i].GetDistance(coordinateWentPassenger) : listTicketOffice[i].Count;
-                    if (tempValue < min)
-                    {
-                        ticketOffice = listTicketOffice[i];
-                        min = tempValue;
-                    }
-                }
-            }
+            minTicketOffice.Min(listTicketOffice, coordinateWentPassenger);
+
             return ticketOffice;
         }
 
@@ -183,18 +177,23 @@ namespace HomeWork12_Task1.Service
         private void ThreadWentPassenger(object? objectThread)
         {
             Passenger wentPassenger;
+            (int, int) coordinateWentPassenger;
             using (StreamReader readOnlyStream = File.OpenText(pathInput))
             {
                 string input;
                 while ((input = readOnlyStream.ReadLine()) != null)
                 {
+                    lock (locker)
+                    {
+                        coordinateWentPassenger = exitsCoordinat[random.Next(0, exitsCoordinat.Count)];
+                    }
                     if (!runSimulator) break;
                     if (canWentPassenger)
                     {
                         wentPassenger = ParseFile.ParseStrings(input);
                         lock (locker)
                         {
-                            WentPassenger(wentPassenger);
+                            WentPassenger(wentPassenger, coordinateWentPassenger);
                         }
                         Thread.Sleep(2000);
                     }
@@ -249,7 +248,7 @@ namespace HomeWork12_Task1.Service
             {
                 lock (locker)
                 {
-                    ReWentPassenger(passenger, rewentListPassengers.Item2);
+                    WentPassenger(passenger, rewentListPassengers.Item2);
                 }
             }
 
