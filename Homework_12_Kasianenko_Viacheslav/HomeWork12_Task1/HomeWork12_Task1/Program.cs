@@ -1,5 +1,6 @@
 ﻿using HomeWork12_Task1.Menu;
 using HomeWork12_Task1.Service;
+using System.Text;
 
 namespace HomeWork12_Task1
 {
@@ -7,6 +8,7 @@ namespace HomeWork12_Task1
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = UTF8Encoding.UTF8;
             //Генерація контрольної групи
             //GeneratePassengerClass.GeneratePassenger(20, "1.txt");
 

@@ -84,7 +84,7 @@ namespace HomeWork12_Task1.Model
 
             for (i = 0; i < count - normQueue; i++)
             {
-                Passenger passenger = priorityQueue.Dequeue();
+                Passenger passenger = peoples.Dequeue();
                 priorityQueue.Enqueue(passenger,(int)passenger.Status);
             }
             for (; i < normQueue; i++)
@@ -105,6 +105,10 @@ namespace HomeWork12_Task1.Model
         {
             peoples.Dequeue();
         }
-        
+
+        public override string? ToString()
+        {
+            return "Каса на координатах" + coordinate + " має " + peoples.Count+" пасажирів";
+        }
     }
 }

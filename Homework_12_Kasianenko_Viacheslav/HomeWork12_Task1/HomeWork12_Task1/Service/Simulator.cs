@@ -1,4 +1,5 @@
 ﻿using HomeWork12_Task1.Action;
+using HomeWork12_Task1.Interface;
 using HomeWork12_Task1.Model;
 using Microsoft.VisualBasic;
 using System;
@@ -19,7 +20,6 @@ namespace HomeWork12_Task1.Service
         private int countEndPassengers = 0;
         private List<(int, int)> exitsCoordinat = new List<(int, int)>();
 
-
         private StreamWriter sw;
 
         private object locker = new();
@@ -38,6 +38,10 @@ namespace HomeWork12_Task1.Service
 
         private List<TicketOffice> listTicketOffice = new List<TicketOffice>();
 
+        //Стратегії
+        private IMinTicketOffice minTicketOfficeStrategy;
+
+
         //Ініціалізація класу
         public Simulator(uint queueNorm, string pathOutput, string pathInput)
         {
@@ -45,7 +49,21 @@ namespace HomeWork12_Task1.Service
             this.pathInput = pathInput;
             this.sw = new StreamWriter(pathOutput);
         }
-
+        public List<string> InfoAboutTicket
+        {
+            get
+            {
+                List<string> result = new List<string>();
+                lock (locker)
+                {
+                    foreach (TicketOffice ticket in listTicketOffice)
+                    {
+                        result.Add(ticket.ToString());
+                    }
+                }
+                return result;
+            }
+        }
         public int CountTicketOffice
         {
             get 
@@ -54,6 +72,12 @@ namespace HomeWork12_Task1.Service
             }
         }
 
+        //Методи зміни стратегій
+        private void ChangeMinTicketOfficeStrategy(IMinTicketOffice _minTicketOfficeStrategy)
+        {
+            minTicketOfficeStrategy= _minTicketOfficeStrategy;  
+        }
+ 
         public bool RunSimulator 
         { 
             get => runSimulator;
@@ -141,16 +165,22 @@ namespace HomeWork12_Task1.Service
                 }
             }
 
-            IMinTicketOffice minTicketOffice = equal? new MinTicketDistance() : new MinCount();
+            if (equal)
+            {
+                ChangeMinTicketOfficeStrategy(new MinTicketDistance());
+            }
+            else 
+            {
+                ChangeMinTicketOfficeStrategy(new MinCount());
+            }
 
-            minTicketOffice.Min(listTicketOffice, coordinateWentPassenger);
+            minTicketOfficeStrategy.Min(listTicketOffice, coordinateWentPassenger);
 
             return ticketOffice;
         }
 
         private void ActionOverNorm(TicketOffice ticketOffice)
         {
-            //List<Passenger> listPassengers = ticketOffice.();
             if (beOverNorm)
             {
                 canWentPassenger = false;
@@ -169,7 +199,7 @@ namespace HomeWork12_Task1.Service
             List<Passenger> listPassenger =  ticketOffice.ReworkQueue(queueNorm);
             foreach (Passenger passenger in listPassenger)
             {
-                ReWentPassenger(passenger, ticketOffice.Coordinate);
+                WentPassenger(passenger, ticketOffice.Coordinate);
             }
             eventFinish.Signal();
         }
@@ -288,17 +318,17 @@ namespace HomeWork12_Task1.Service
             if (exitsCoordinat.Count == 0)
                 throw new Exception("Not have exits");
 
-            runSimulator = true;
+            
 
             if (listTicketOffice.Count == 0) 
                 throw new Exception("Not have ticket office");
-
+            runSimulator = true;
             InitThread();
         }
 
         public override string? ToString()
         {
-            return "Status simulator " + runSimulator + " count ticket office " + listTicketOffice.Count + " count finish passenger "+countEndPassengers;
+            return "Статус симулятора " + runSimulator + "| Кількість відкритих кас " + listTicketOffice.Count + "| Кількість обслугованих пассажирів "+countEndPassengers;
         }
     }
 }

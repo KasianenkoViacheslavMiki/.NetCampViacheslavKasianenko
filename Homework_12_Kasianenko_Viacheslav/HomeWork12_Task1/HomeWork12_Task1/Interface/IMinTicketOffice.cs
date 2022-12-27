@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeWork12_Task1.Action
+namespace HomeWork12_Task1.Interface
 {
     public interface IMinTicketOffice
     {
-        public TicketOffice Min(List<TicketOffice> listTicketOffice, (int,int) coordinate);
+        public TicketOffice Min(List<TicketOffice> listTicketOffice, (int, int) coordinate);
     }
 }
