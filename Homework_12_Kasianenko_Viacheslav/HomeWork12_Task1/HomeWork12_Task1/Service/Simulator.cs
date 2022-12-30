@@ -174,7 +174,7 @@ namespace HomeWork12_Task1.Service
                 ChangeMinTicketOfficeStrategy(new MinCount());
             }
 
-            minTicketOfficeStrategy.Min(listTicketOffice, coordinateWentPassenger);
+            ticketOffice = minTicketOfficeStrategy.Min(listTicketOffice, coordinateWentPassenger);
 
             return ticketOffice;
         }
