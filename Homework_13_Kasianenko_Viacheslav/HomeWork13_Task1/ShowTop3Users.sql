@@ -5,7 +5,7 @@ SET @SecondDate = '2023-01-15 12:00:00'
 
 USE CinemaSigmaUA
 
-SELECT  TOP(3)      Client.NameClient, SUM(Showtimes.PriceShowTime) AS Total
+SELECT  TOP(3)      Client.NameClient, SUM(Showtimes.PriceShowTime) * Count(Bookings.PhoneNumberClient) AS Total
 FROM            Client INNER JOIN
                          Bookings ON Client.PhoneNumberClient = Bookings.PhoneNumberClient INNER JOIN
                          Showtimes ON Bookings.GuidShowtimes = Showtimes.GuidShowtimes
