@@ -12,8 +12,36 @@ namespace HomeWork15_Task1
 {
     static public class ActionDataBase
     {
-        static NetworkCinemaHallsContext cinemaContext = new NetworkCinemaHallsContext();
 
+        static NetworkCinemaHallsContext cinemaContext = new NetworkCinemaHallsContext();
+        static public async Task CreateFilm(Films film)
+        {
+            await cinemaContext.Films.AddAsync(film);
+        }
+        static public async Task CreateUser(Client client)
+        {
+            await cinemaContext.Clients.AddAsync(client);
+        }
+        static public async Task<List<Showtimes>> ShowFutureShowTime()
+        {
+            return await cinemaContext.Showtimes.Where(x => x.ShowTime > DateTime.Now).ToListAsync();
+        }
+        static public async Task BuyTicket(Showtimes showtimes, PlacesCinemaHall placesCinemaHall,Client client)
+        {
+            Bookings bookings = new Bookings();
+            bookings.PlacesCinemaHall = placesCinemaHall;
+            bookings.GuidPlaceCinemaHall = placesCinemaHall.Id;
+            bookings.GuidClient = client.Id;
+            bookings.Client = client;
+            bookings.GuidShowTimes = showtimes.Id;
+            bookings.Showtimes = showtimes;
+
+            await cinemaContext.Bookings.AddAsync(bookings);
+        }
+        static public async Task BuyTicket(Bookings bookings)
+        {
+            await cinemaContext.Bookings.AddAsync(bookings);
+        }
         static public List<Showtimes> SelectAllTheShowtimes()
         {
             List<Showtimes> result = new List<Showtimes>();
